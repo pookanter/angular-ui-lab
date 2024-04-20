@@ -4,8 +4,15 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        "8xl": "90rem",
+      }
+    },
   },
-  plugins: [],
+  daisyui: {
+    themes: ["sunset"],
+  },
+  plugins: [require("daisyui")],
 }
 
