@@ -1,17 +1,23 @@
 <div class="w-64 shadow-xl card bg-base-100">
-  <figure><img src="/assets/shoes/green-sneaker.jpg" alt="Shoes" /></figure>
+  <figure><img [src]="data.image" alt="Shoes" /></figure>
   <div class="px-4 card-body">
-    <h2 class="card-title">Shoes!</h2>
-    <div class="rating rating-sm">
-      <input type="radio" name="rating-5" class="bg-orange-400 mask mask-star-2" />
-      <input type="radio" name="rating-5" class="bg-orange-400 mask mask-star-2" checked />
-      <input type="radio" name="rating-5" class="bg-orange-400 mask mask-star-2" />
-      <input type="radio" name="rating-5" class="bg-orange-400 mask mask-star-2" />
-      <input type="radio" name="rating-5" class="bg-orange-400 mask mask-star-2" />
+    <h2 class="card-title">{{ data.name }}</h2>
+    <div class="rating rating-sm rating-half">
+      <input type="radio" name="rating-10" class="rating-hidden" />
+      @for (star of stars; track star.id) {
+      <input
+        type="radio"
+        [name]="'rating-' + data.id"
+        class="bg-orange-400 mask mask-star-2"
+        [ngClass]="(star.value * 10) % 2 == 0 ? 'mask-half-2' : 'mask-half-1'"
+        [checked]="star.value == data.rating" />
+      }
     </div>
-    <p>3,400.00 THB</p>
+    <p>{{ data.price | number : "1.2" }} THB</p>
     <div class="justify-end card-actions">
-      <button class="btn btn-primary">Add To Cart</button>
+      <button class="btn btn-primary" [ngClass]="{ 'btn-disabled': data.quantity <= 0 }">
+        Add To Cart
+      </button>
     </div>
   </div>
 </div>
