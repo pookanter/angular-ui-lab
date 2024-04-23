@@ -1,6 +1,6 @@
-<div class="w-64 shadow-xl card bg-base-100">
-  <figure><img [src]="data.image" alt="Shoes" /></figure>
-  <div class="px-4 card-body">
+<div class="shadow-xl w-72 card bg-base-100">
+  <figure><img class="h-48" [src]="data.image" [alt]="data.name" /></figure>
+  <div class="h-48 px-4 card-body">
     <h2 class="card-title">{{ data.name }}</h2>
     <div class="rating rating-sm rating-half">
       <input type="radio" name="rating-10" class="rating-hidden" />

@@ -1,1 +1,16 @@
-<p>products works!</p>
+<div class="flex justify-between">
+  <div class="w-56">
+    <h4>Category</h4>
+    <ul>
+      <li><a>Men</a></li>
+      <li><a>Women</a></li>
+      <li><a>Children</a></li>
+      <li><a>Children</a></li>
+    </ul>
+  </div>
+  <div class="grid w-full grid-cols-4">
+    @for (product of products; track product.id) {
+    <app-product-card [data]="product"></app-product-card>
+    } @empty { Empty list of users }
+  </div>
+</div>
